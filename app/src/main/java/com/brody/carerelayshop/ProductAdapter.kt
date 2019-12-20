@@ -7,10 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.brody.carerelayshop.model.Product
+import com.squareup.picasso.Picasso
 
 
 class ProductsAdapter(private val products: ArrayList<Product>) : RecyclerView.Adapter<ProductsAdapter.ViewHolder> () {
     override fun onBindViewHolder(holder: ProductsAdapter.ViewHolder, position: Int) {
+        Picasso.get().load(products[position].photoUrl).into(holder.image)
         holder.title.text = products[position].title
     }
 
