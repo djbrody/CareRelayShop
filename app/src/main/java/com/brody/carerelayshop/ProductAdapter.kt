@@ -5,15 +5,34 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import com.brody.carerelayshop.model.Product
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.product_row.view.*
 
+class ProductsAdapter(
+    private val products: List<Product>,
+    private val onClickProduct: (title: String, photoUrl: String, photoView: View) -> Unit
+) : androidx.recyclerview.widget.RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
 
-class ProductsAdapter(private val products: ArrayList<Product>) : RecyclerView.Adapter<ProductsAdapter.ViewHolder> () {
     override fun onBindViewHolder(holder: ProductsAdapter.ViewHolder, position: Int) {
-        Picasso.get().load(products[position].photoUrl).into(holder.image)
-        holder.title.text = products[position].title
+        val product = products[position]
+        Picasso.get().load(product.photoUrl).into(holder.image)
+        holder.title.text = product.title
+        holder.price.text = product.price.toString()
+
+        if (product.isOnSale) {
+            holder.saleImageView.visibility = View.VISIBLE
+        } else {
+            holder.saleImageView.visibility = View.GONE
+        }
+
+
+
+        holder.image.setOnClickListener {
+            onClickProduct.invoke(product.title, product.photoUrl, holder.image)
+        }
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,10 +42,10 @@ class ProductsAdapter(private val products: ArrayList<Product>) : RecyclerView.A
 
     override fun getItemCount() = products.size
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.photo)
         val title: TextView = itemView.findViewById(R.id.title)
-
+        val price: TextView = itemView.findViewById(R.id.price)
+        val saleImageView = itemView.saleImageView
     }
-
 }
