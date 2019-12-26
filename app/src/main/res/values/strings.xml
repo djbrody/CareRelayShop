@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">CareRelay Care Shop</string>
+    <string name="app_name">CareRelay\'s Ecommerce</string>
     <string name="action_settings">Settings</string>
     <string name="product_details">Product Details</string>
     <string name="availability">See if it\'s available</string>
+    <string name="description_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_ndescription_here_n">description here description here description here description here description here description here description here description here description here description here description here description here description here description here description here description here description here description here description here description here description here</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="todo">TODO</string>
+    <string name="your_cart">Your Cart</string>
 </resources>

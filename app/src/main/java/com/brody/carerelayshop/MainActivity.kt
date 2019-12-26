@@ -8,7 +8,6 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.room.Room
-import com.brody.carerelayshop.model.Product
 import com.brody.carerelayshop.cart.CartActivity
 import com.brody.carerelayshop.database.AppDatabase
 import com.brody.carerelayshop.database.CartModel
@@ -17,7 +16,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
-
 
 class MainActivity : AppCompatActivity() {
 
